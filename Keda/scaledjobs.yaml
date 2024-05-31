@@ -1,0 +1,18 @@
+apiVersion: keda.sh/v1alpha1
+kind: ScaledObject
+metadata:
+  name: cpu-stress-scaledobject
+spec:
+  scaleTargetRef:
+    kind: Deployment
+    name: cpu-stress
+  minReplicaCount: 1
+  maxReplicaCount: 3
+  cooldownPeriod: 300
+  pollingInterval: 30
+  triggers:
+  - type: cpu
+    metadata:
+      type: Utilization
+      value: "50"
+

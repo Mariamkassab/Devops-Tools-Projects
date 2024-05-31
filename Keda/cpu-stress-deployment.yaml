@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cpu-stress
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: cpu-stress
+  template:
+    metadata:
+      labels:
+        app: cpu-stress
+    spec:
+      containers:
+      - name: cpu-stress
+        image: docker.io/progrium/stress:latest
+        args:
+          - "--cpu"
+          - "1"  # Number of CPU workers to spin up
+        resources:
+          requests:
+            cpu: "250m"
+          limits:
+            cpu: "500m"
+
