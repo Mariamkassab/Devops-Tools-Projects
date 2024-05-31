@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: cpu-stress
+  name: cpu-stress-deployment
 spec:
   replicas: 1
   selector:
@@ -14,13 +14,10 @@ spec:
     spec:
       containers:
       - name: cpu-stress
-        image: docker.io/progrium/stress:latest
-        args:
-          - "--cpu"
-          - "1"  # Number of CPU workers to spin up
+        image: busybox
         resources:
           requests:
-            cpu: "250m"
+            cpu: 100m
           limits:
-            cpu: "500m"
-
+            cpu: 1
+        command: ["yes"]
