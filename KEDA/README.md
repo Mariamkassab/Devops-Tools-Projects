@@ -8,4 +8,11 @@ helm repo update
 helm install keda kedacore/keda
 ```
 
-## 
+## Install your Deployment & Scaledobject
+
+```
+git clone https://github.com/Mariamkassab/Devops-Tools-Projects.git
+cd Devops-Tools-Projects/kEDA
+kubectl apply -f .
+```
+
