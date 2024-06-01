@@ -14,10 +14,10 @@ spec:
     spec:
       containers:
       - name: cpu-stress
-        image: busybox
+        image: ubuntu:latest
+        command: ["/bin/sh", "-c", "apt-get update && apt-get install -y stress && stress --cpu 200m"]
         resources:
           requests:
-            cpu: 100m
+            cpu: "100m"
           limits:
-            cpu: 1
-        command: ["yes"]
+            cpu: "200m"
