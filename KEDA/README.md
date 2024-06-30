@@ -1,5 +1,7 @@
 # keda (Kubernetes Event-driven Autoscaling)
 
+! Make sure that you installed the matrix server on your K8s cluster.
+
 ## install KEDA to your cluster
 
 ```
